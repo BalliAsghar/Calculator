@@ -1,0 +1,30 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "A Simple Calculator cli app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "bin": {
+    "calc": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalliAsghar/Calculator.git"
+  },
+  "author": "BalliAsghar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BalliAsghar/Calculator/issues"
+  },
+  "homepage": "https://github.com/BalliAsghar/Calculator#readme",
+  "dependencies": {
+    "boxen": "^7.0.0",
+    "chalk": "^5.1.2"
+  },
+  "devDependencies": {
+    "vitest": "^0.24.3"
+  }
+}
