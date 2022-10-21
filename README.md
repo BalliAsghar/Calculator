@@ -23,22 +23,34 @@ npm install
 ```
 
 # Usage
-Run the following command to show the help
+Run the following command to open the Calculator in interactive mode
     
 ```bash
 node index.js
 ```
 **Note**: You can also use `npm install -g` to install the package globally and then use `calc` command to run the program from anywhere.
 
-![image](./image.png)
+## Calculator in interactive mode
 
-Example:
+![gif](./calculator.gif)
+
+## Command Mode
+
+## Available Commands
+
+- `add` - Adds two numbers or more
+- `sub` - Subtracts two numbers or more
+- `mul` - Multiplies two numbers or more
+- `div` - Divides two numbers or more
+- `help` - Displays the help menu
+
+## Command Usage
 
 ```bash
-node index.js add 25 43
+node index.js add 10 5
 ```
 
 ## Limitations
 
-- The calculator can only perform one operation at a time.
+- The calculator can only perform one operation at a time. means, you can't add and subtract at the same time. e.g. `node index.js add 10 5 sub 2 1`
 - The calculator can only accept numbers with spaces between them. For example, `add 25 43` is valid, but `add 25,43` is not.
