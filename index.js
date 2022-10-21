@@ -52,10 +52,19 @@ Commands:
       name: "division",
       aliases: ["d", "div", "division"],
     },
+    {
+      name: "help",
+      aliases: ["h", "help"],
+    },
   ];
 
   //Check if command is valid
   if (!commands.find((c) => c.aliases.includes(command))) {
+    showHelp();
+    return;
+  }
+
+  if (command === "help" || command === "h") {
     showHelp();
     return;
   }
