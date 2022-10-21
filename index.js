@@ -1,17 +1,20 @@
 #!/usr/bin/env node
-import arithmeticCalculation from "./utils.js";
+import { arithmeticCalculation, calculator } from "./utils.js";
 
 const showHelp = () => {
   console.log(`
 Usage: calc <command> [numbers...]
   
 Commands:
-   addition|add|a   Addition of numbers
-   subtraction|sub|s   Subtraction of numbers
-   multiplication|mul|m   Multiplication of numbers
-   division|div|d   Division of numbers
+   addition|add|a   Addition
+   subtraction|sub|s   Subtraction
+   multiplication|mul|m   Multiplication
+   division|div|d   Division
+
+   help|h   Show help
       
   example:
+   calc # opens the calculator in interactive mode
    calc addition 12 11
    calc sub 12 232
    calc m 12 11
@@ -22,6 +25,12 @@ Commands:
 (() => {
   // parse arguments
   const args = process.argv.slice(2);
+
+  // if no arguments are passed, start the interactive mode of the calculator
+  if (args.length === 0) {
+    calculator();
+    return;
+  }
 
   const command = args[0];
 

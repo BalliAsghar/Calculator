@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import boxen from "boxen";
+import inquirer from "inquirer";
 // Colores
 const error = chalk.bold.redBright;
 const success = chalk.greenBright;
@@ -24,7 +25,7 @@ const operations = {
   division: "/",
 };
 
-const arithmeticCalculation = (operation, numbers) => {
+export const arithmeticCalculation = (operation, numbers) => {
   if (numbers.length < 2) {
     box(error("Please enter at least two numbers"), "ERROR");
     return;
@@ -74,4 +75,57 @@ const arithmeticCalculation = (operation, numbers) => {
   return result;
 };
 
-export default arithmeticCalculation;
+export const calculator = async () => {
+  const ask = async (basenumber) => {
+    // if basenumber is undefined, ask for the first number
+    if (!basenumber) {
+      const { firstNumber } = await inquirer.prompt([
+        {
+          type: "input",
+          name: "firstNumber",
+          message: "Please enter the first number",
+        },
+      ]);
+      basenumber = firstNumber;
+    }
+
+    // ask for the calculation type
+    const { operation } = await inquirer.prompt([
+      {
+        type: "list",
+        name: "operation",
+        message: `Please select the operation to perform on ${info(
+          basenumber
+        )}`,
+        choices: [
+          ...Object.keys(operations).map((operation) => ({
+            name: `${operation} (${operations[operation]})`,
+            value: operation,
+          })),
+          { name: "Exit", value: "exit" },
+        ],
+      },
+    ]);
+
+    // if the user wants to exit, exit
+    if (operation === "exit") {
+      return;
+    }
+
+    // ask for the second number
+    const { secondNumber } = await inquirer.prompt([
+      {
+        type: "input",
+        name: "secondNumber",
+        message: "Please enter the second number",
+      },
+    ]);
+
+    // calculate the result
+    const result = arithmeticCalculation(operation, [basenumber, secondNumber]);
+
+    return ask(result);
+  };
+
+  ask();
+};
