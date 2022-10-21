@@ -34,6 +34,11 @@ node index.js
 
 ![gif](./calculator.gif)
 
+In interactive mode, you can perform multiple operations one after another. To exit the interactive mode, press `Ctrl + C`. or select `Exit`
+
+
+**Note**: First type the first number, then select the operation, and then type the second number. The result will be displayed on the screen. then the result will be used as the first number for the next operation.
+
 ## Command Mode
 
 ## Available Commands
