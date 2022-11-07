@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import arithmeticCalculation from "../utils";
+import { arithmeticCalculation } from "../utils";
 
 describe("Test", () => {
   describe("Addition", () => {
